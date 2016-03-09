@@ -1,0 +1,21 @@
+dgeth(1) --- Go Ethereum Docker wrapper
+=======================================
+
+Run geth(1) as a Docker container hooked up to the local network and
+file system --- almost as if running directly on the host machine.
+
+By default, `~/.ethereum' is bind-mounted into the container.
+
+Note: To change the datadir, please set the `datadir' variable
+(instead of passing the `--datadir' option) to enable dgeth(1) to
+mount that directory into the container instead of `~/.ethereum'.
+
+To mount additional volumes, set `volumes="-v /a:/a -v /b:/b"'.
+
+To change the name of the container, set `name=foo'.  To run the
+container in the background, set `lifecycle=--detach'.
+
+By default, the container is placed inside the host's network stack.
+To use a containerized network stack, set `network=--net=default'.
+
+Any command-line arguments are passed directly to geth(1).
